@@ -8,7 +8,7 @@ Essa é uma otima opção par quando se precisar depura um app no celular sem a 
 
 **Nota 2:** O procedimento necessitar que o celular inicialmente esteja conectado ao computador.
 
-**Nota 3:** O celular deve estar com a função **Depuração via wifi** deve estar ativa.
+**Nota 3:** O celular deve estar com a função **Depuração via wifi** ativada.
 
 Lista dispositivos conectados:
 ```
