@@ -26,7 +26,7 @@ Widget build(BuildContext context){
 - **controller**    controla as páginas;
 - **scrollDirection** define o eixo de rolação do scroll;
 
-**referências**<br/>
-1. [PageView com BottomNavigationBar](https://karthikponnam.medium.com/
-2. flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
-3. [PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
+**referências**
+- [PageView com BottomNavigationBar](https://karthikponnam.medium.com/
+- flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
+- [PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
