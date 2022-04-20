@@ -21,11 +21,12 @@ Widget build(BuildContext context){
     );
 }
 ```
-Métodos e atributos importantes:
-**onPageChanged** pega as alterações no pageview;
-**controller**    controla as páginas;
-**scrollDirection** define o eixo de rolação do scroll;
+Métodos e atributos importantes:<br/>
+- **onPageChanged** pega as alterações no pageview;
+- **controller**    controla as páginas;
+- **scrollDirection** define o eixo de rolação do scroll;
 
-**referências**
-[PageView com BottomNavigationBar](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
-[PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
+**referências**<br/>
+1. [PageView com BottomNavigationBar](https://karthikponnam.medium.com/
+2. flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
+3. [PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
