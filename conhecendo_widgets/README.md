@@ -11,13 +11,21 @@ sintaxe do **PageView**:
 ```dart
 @override
 Widget build(BuildContext context){
-    final PageController pageController = PageController(); // Controla a pagina
+    final PageController _pageController = PageController();    // Controla a pagina
 
     return PageView(
-        controller: pageController,
+        controller: _pageController,
         children: const <Widgets>[ // Guia de páginas, cada wiget será uma page
 
         ]
     );
 }
 ```
+Métodos e atributos importantes:
+**onPageChanged** pega as alterações no pageview;
+**controller**    controla as páginas;
+**scrollDirection** define o eixo de rolação do scroll;
+
+**referências**
+[PageView com BottomNavigationBar](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
+[PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
