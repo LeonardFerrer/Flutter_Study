@@ -21,7 +21,7 @@ Widget build(BuildContext context){
     );
 }
 ```
-Métodos e atributos importantes:<br/>
+**Métodos e atributos importantes:**
 - **onPageChanged** pega as alterações no pageview;
 - **controller**    controla as páginas;
 - **scrollDirection** define o eixo de rolação do scroll;
