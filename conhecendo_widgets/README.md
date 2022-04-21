@@ -29,3 +29,49 @@ Widget build(BuildContext context){
 **referências**
 - [PageView com BottomNavigationBar](https://karthikponnam.medium.com/flutter-pageview-withbottomnavigationbar-fb4c87580f6a);
 - [PageView class](https://api.flutter.dev/flutter/widgets/PageView-class.html)
+
+## Navegação entre pages
+Para navegar entre páginas há algumas opções muito populares:
+- **Drawer**
+- **BottomNavegationBar**
+
+### Drawer
+Um painel de design de material que desliza horizontalmente da borda de um Scaffold para mostrar links de navegação em um aplicativo.
+
+Drawer são normalmente usadas com a propriedade Scaffold.drawer. O filho da gaveta geralmente é um ListView cujo primeiro filho é um DrawerHeader que exibe informações de status sobre o usuário atual. Os filhos de gaveta restantes geralmente são construídos com ListTile s, muitas vezes concluindo com um AboutListTile.
+
+sintaxe do **Drawer**:
+```dart
+@override
+Scaffold{
+    appBar: AppBar()
+    drawer Drawer(
+        child: ListView(
+            children: [
+                DrawerHeader(),
+                ListTile(),
+                ListTile(),
+                ListTile(),
+            ]
+        )
+    )
+}
+```
+O Drawer pode ser fechado manualmente deslizando a tela para esquerda e usando a função **Navigator.pop**
+```dart
+@override
+ListTile(
+    leading: Icon(),        // Icone que fica no inicio
+    trealing: Icon(),       // Icone que fica no fim
+    title: Text("item 1"),  // Titulo
+    subtitle: Text("sub"),  // Subtitulo   
+    onTap: (){
+        // atualizando estado do app
+        Naviation.pop(context);
+    }
+)
+```
+
+**referências**
+- [Drawer class](https://api.flutter.dev/flutter/material/Drawer-class.html)
+- [Flutter Drawer Full Guide](https://appmaking.com/flutter-drawer-example/)
