@@ -24,10 +24,25 @@ class _TodoListPageState extends State<TodoListPage> {
         padding: const EdgeInsets.all(24), // Espaçamento
         child: Column(
           children: [
-            TextField(
+            TextFormField(
               // Entrada para campo de texto
               controller: _textEditingController,
-              textInputAction: TextInputAction.done,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+              ),
+              textInputAction:
+                  TextInputAction.done, // Indica que o formulario finalizou
+              // Faz a lógica quando se finalizar o formulario
+              onFieldSubmitted: (value) {
+                if (_textEditingController.text.isNotEmpty) {
+                  // Verificar se o TextField não está vazio
+                  setState(() {
+                    tarefas.add(_textEditingController
+                        .text); // Adiciona uma nova tarefa a lista
+                  });
+                  _textEditingController.clear(); // Limpa os dados no TextField
+                }
+              },
             ),
             Container(
                 height: 500, // limita o tamanho do ListView
@@ -41,11 +56,14 @@ class _TodoListPageState extends State<TodoListPage> {
                           tarefas[index],
                           style: const TextStyle(fontSize: 20),
                         ),
-                        onLongPress: () {
-                          setState(() {
-                            tarefas.removeAt(index);
-                          });
-                        },
+                        trailing: IconButton(
+                            icon: const Icon(Icons.minimize_sharp,
+                                color: Colors.red),
+                            onPressed: () {
+                              setState(() {
+                                tarefas.removeAt(index);
+                              });
+                            }),
                       );
                     })),
           ],
@@ -72,7 +90,7 @@ class _TodoListPageState extends State<TodoListPage> {
               }),
           FloatingActionButton(
               // Botão para adiconar uma nova tarefa
-              tooltip: "Reseta as tarefas",
+              tooltip: "Resetar as tarefas",
               child: const Icon(Icons.minimize_sharp),
               onPressed: () {
                 setState(() {
