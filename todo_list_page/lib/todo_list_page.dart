@@ -8,14 +8,79 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
+  final TextEditingController _textEditingController = TextEditingController();
+  List<String> tarefas = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:
+          false, // Isso faz com que o teclado sobreponha o Scaffold
       appBar: AppBar(
         title: const Text("Lista de Tarefas"),
       ),
-      floatingActionButton:
-          FloatingActionButton(child: const Icon(Icons.add), onPressed: () {}),
+      body: Container(
+        // Corpo do App
+        padding: const EdgeInsets.all(24), // Espaçamento
+        child: Column(
+          children: [
+            TextField(
+              // Entrada para campo de texto
+              controller: _textEditingController,
+              textInputAction: TextInputAction.done,
+            ),
+            Container(
+                height: 500, // limita o tamanho do ListView
+                child: ListView.separated(
+                    separatorBuilder: (context, index) =>
+                        const Divider(color: Colors.black, height: 20),
+                    itemCount: tarefas.length, // Tamanho da lisat de tarefas
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(
+                          tarefas[index],
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        onLongPress: () {
+                          setState(() {
+                            tarefas.removeAt(index);
+                          });
+                        },
+                      );
+                    })),
+          ],
+        ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+              // Botão para adiconar uma nova tarefa
+              tooltip: "add nova tarefa",
+              child: const Icon(Icons.add),
+              onPressed: () {
+                // Callback
+                if (_textEditingController.text.isNotEmpty) {
+                  // Verificar se o TextField não está vazio
+                  setState(() {
+                    tarefas.add(_textEditingController
+                        .text); // Adiciona uma nova tarefa a lista
+                  });
+                  _textEditingController.clear(); // Limpa os dados no TextField
+                }
+              }),
+          FloatingActionButton(
+              // Botão para adiconar uma nova tarefa
+              tooltip: "Reseta as tarefas",
+              child: const Icon(Icons.minimize_sharp),
+              onPressed: () {
+                setState(() {
+                  tarefas.clear(); // Reseta a lista de tarefas
+                });
+              }),
+        ],
+      ),
     );
   }
 }
