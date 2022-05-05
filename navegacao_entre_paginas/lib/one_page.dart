@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navegacao_entre_paginas/widgets/custom_button_widget.dart';
 
 class OnePage extends StatelessWidget {
   const OnePage({Key? key}) : super(key: key);
@@ -6,8 +7,11 @@ class OnePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ElevatedButton(
             child: const Text("Para Page Two"),
             onPressed: () {
               Navigator.of(context)
@@ -15,7 +19,16 @@ class OnePage extends StatelessWidget {
                   .then((value) => print(value));
               // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TwoPage()));
             }),
-      ),
-    );
+        const SizedBox(
+          height: 20,
+        ),
+        // Botão custumizado
+        CustomButoonWidget(
+          onPressed: () {},
+          title: 'botão cutumizado',
+          textSize: 18,
+        ),
+      ],
+    ));
   }
 }
